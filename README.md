@@ -1,0 +1,1 @@
+# Slovak birth id generator
