@@ -5,3 +5,5 @@ authors = ["Jakub Leško <jakub.lesko@outlook.com>"]
 edition = "2018"
 
 [dependencies]
+chrono = "0.4.6"
+rand = "0.6.1"
