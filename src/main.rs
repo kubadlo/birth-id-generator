@@ -1,6 +1,3 @@
-extern crate chrono;
-extern crate rand;
-
 use chrono::prelude::*;
 use rand::prelude::*;
 
@@ -71,8 +68,8 @@ fn create_birth_id(date_part: &String, seq_part: &u16) -> String {
     };
 
     let seq_fmt = match seq_part {
-        0...9 => format!("00{}", seq_part),
-        10...99 => format!("0{}", seq_part),
+        0..=9 => format!("00{}", seq_part),
+        10..=99 => format!("0{}", seq_part),
         _ => format!("{}", seq_part),
     };
 
