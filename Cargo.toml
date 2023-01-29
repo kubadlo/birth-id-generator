@@ -1,9 +1,8 @@
 [package]
 name = "birth-id-generator"
-version = "0.1.0"
-authors = ["Jakub Leško <jakub.lesko@outlook.com>"]
-edition = "2018"
+version = "0.2.0"
+edition = "2021"
 
 [dependencies]
-chrono = "0.4.19"
-rand = "0.7.3"
+chrono = "0.4.23"
+rand = "0.8.5"

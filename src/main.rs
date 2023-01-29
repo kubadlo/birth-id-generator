@@ -18,23 +18,23 @@ fn last_day_of_month(year: &u16, month: &u8) -> u8 {
 }
 
 fn generate_year(generator: &mut ThreadRng) -> u16 {
-    generator.gen_range(1970, Local::now().year() as u16 + 1)
+    generator.gen_range(1970..Local::now().year() as u16 + 1)
 }
 
 fn generate_month(generator: &mut ThreadRng) -> u8 {
-    generator.gen_range(1, 13)
+    generator.gen_range(1..13)
 }
 
 fn generate_day(generator: &mut ThreadRng, year: &u16, month: &u8) -> u8 {
-    generator.gen_range(1, last_day_of_month(year, month) + 1)
+    generator.gen_range(1..last_day_of_month(year, month) + 1)
 }
 
 fn generate_gender(generator: &mut ThreadRng) -> u8 {
-    generator.gen_range(0, 2)
+    generator.gen_range(0..2)
 }
 
 fn generate_seq(generator: &mut ThreadRng) -> u16 {
-    generator.gen_range(0, 999)
+    generator.gen_range(0..999)
 }
 
 fn combine_date_parts(year: &u16, month: &u8, day: &u8, gender: &u8) -> String {
@@ -73,7 +73,7 @@ fn create_birth_id(date_part: &String, seq_part: &u16) -> String {
         _ => format!("{}", seq_part),
     };
 
-    format!("{}{}{}", date_part, seq_fmt, control_number)
+    format!("{}/{}{}", date_part, seq_fmt, control_number)
 }
 
 fn main() {
@@ -88,10 +88,13 @@ fn main() {
     let date_part: String = combine_date_parts(&year, &month, &day, &gender);
     let birth_id: String = create_birth_id(&date_part, &seq);
 
-    println!("Day: {}", day);
-    println!("Month: {}", month);
-    println!("Year: {}", year);
-    println!("Gender: {}", gender);
-    println!("Date: {}", date_part);
+    println!("Year:    {}", year);
+    println!("Month:   {}", month);
+    println!("Day:     {}", day);
+    println!("Gender:  {}", match gender {
+        1 => "Female",
+        _ => "Male"
+    });
+
     println!("BirthId: {}", birth_id);
 }
