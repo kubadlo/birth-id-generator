@@ -20,23 +20,23 @@ fn last_day_of_month(year: &u16, month: &u8) -> u8 {
 }
 
 fn generate_year(generator: &mut ThreadRng) -> u16 {
-    generator.gen_range(1970..Local::now().year() as u16 + 1)
+    generator.gen_range(1970..=Local::now().year() as u16)
 }
 
 fn generate_month(generator: &mut ThreadRng) -> u8 {
-    generator.gen_range(1..13)
+    generator.gen_range(1..=12)
 }
 
 fn generate_day(generator: &mut ThreadRng, year: &u16, month: &u8) -> u8 {
-    generator.gen_range(1..last_day_of_month(year, month) + 1)
+    generator.gen_range(1..=last_day_of_month(year, month))
 }
 
 fn generate_gender(generator: &mut ThreadRng) -> u8 {
-    generator.gen_range(0..2)
+    generator.gen_range(0..=1)
 }
 
 fn generate_seq(generator: &mut ThreadRng) -> u16 {
-    generator.gen_range(0..999)
+    generator.gen_range(0..=999)
 }
 
 fn combine_date_parts(year: &u16, month: &u8, day: &u8, gender: &u8) -> String {
