@@ -8,11 +8,13 @@ fn is_leap_year(year: &u16) -> bool {
 fn last_day_of_month(year: &u16, month: &u8) -> u8 {
     match month {
         4 | 6 | 9 | 11 => 30,
-        2 => if is_leap_year(year) {
-            29
-        } else {
-            28
-        },
+        2 => {
+            if is_leap_year(year) {
+                29
+            } else {
+                28
+            }
+        }
         _ => 31,
     }
 }
@@ -91,10 +93,13 @@ fn main() {
     println!("Year:    {}", year);
     println!("Month:   {}", month);
     println!("Day:     {}", day);
-    println!("Gender:  {}", match gender {
-        1 => "Female",
-        _ => "Male"
-    });
+    println!(
+        "Gender:  {}",
+        match gender {
+            1 => "Female",
+            _ => "Male",
+        }
+    );
 
     println!("BirthId: {}", birth_id);
 }
