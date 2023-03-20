@@ -1,19 +1,23 @@
-### Cargo ###
+# Cargo
 /target
 **/*.rs.bk
 
-### CLion ###
+# CLion
 .idea/
 *.iws
 *.iml
 *.ipr
 
-### Visual Studio Code ###
+# Visual Studio Code
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
 
-### Sublime Text ###
+# Sublime Text
 *.sublime-workspace
+
+# System Files
+.DS_Store
+Thumbs.db
