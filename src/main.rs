@@ -26,7 +26,7 @@ fn last_day_of_month(year: &u16, month: &u8) -> u8 {
 }
 
 fn generate_year(generator: &mut ThreadRng) -> u16 {
-    generator.gen_range(1970..=Local::now().year() as u16)
+    generator.gen_range(1954..=Local::now().year() as u16)
 }
 
 fn generate_month(generator: &mut ThreadRng) -> u8 {
