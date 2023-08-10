@@ -71,7 +71,7 @@ fn create_birth_id(date_part: &String, seq_part: &u16) -> String {
 }
 
 fn main() {
-    let mut random_generator = rand::thread_rng();
+    let mut random_generator = thread_rng();
 
     let year: u16 = generate_year(&mut random_generator);
     let month: u8 = generate_month(&mut random_generator);
